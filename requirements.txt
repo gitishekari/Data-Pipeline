@@ -1,0 +1,2 @@
+# XML Schema (XSD 1.0/1.1) validation library required by scripts/validate.py
+xmlschema>=3.0.0
