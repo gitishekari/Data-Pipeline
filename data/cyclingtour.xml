@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ct:cyclingtours xmlns:ct="http://bike4you.fr/cyclingtour#">
+
+<!--
+Bikes: 6 (mix categories/levels)
+Activities: 5 (different types, distances, guided/non-guided)
+Events: 4 (varied categories/dates, link some to activities)
+Paths: 6 (different environments/levels)
+Destinations: 5 (various French cities/routes)
+Tour packages: 4 (varied difficulty, equipment, with/without END_DATE)
+Guides: 4 (so some bookings have/omit guides)
+Clients: 8 (so you can segment by type, premium, etc.)
+Bookings: 10 (mix of ACTIVITY vs PACKAGE; some with GUIDE)
+-->
+
+  <!-- =========================
+       BIKES_Database
+       ========================= -->
+  <ct:BIKES_Database>
+    <ct:BIKE ID_Bike="bike1">
+      <ct:BIKE_BRAND>Specialized</ct:BIKE_BRAND>
+      <ct:BIKE_CATEGORY>Road</ct:BIKE_CATEGORY>
+      <ct:BIKE_PRICE CURRENCY="EUR">35.00</ct:BIKE_PRICE>
+      <ct:HEIGHT>160-185 cm</ct:HEIGHT>
+      <ct:RIDER_LEVEL>Intermediate</ct:RIDER_LEVEL>
+      <ct:TRAVERSABLE_BIKE_ROAD>Asphalt</ct:TRAVERSABLE_BIKE_ROAD>
+      <ct:TOTAL_BIKES>15</ct:TOTAL_BIKES>
+      <ct:AVAILABLE_BIKES>9</ct:AVAILABLE_BIKES>
+    </ct:BIKE>
+    <ct:BIKE ID_Bike="bike2">
+      <ct:BIKE_BRAND>Trek</ct:BIKE_BRAND>
+      <ct:BIKE_CATEGORY>Mountain</ct:BIKE_CATEGORY>
+      <ct:BIKE_PRICE CURRENCY="EUR">40.00</ct:BIKE_PRICE>
+      <ct:HEIGHT>170-195 cm</ct:HEIGHT>
+      <ct:RIDER_LEVEL>Advanced</ct:RIDER_LEVEL>
+      <ct:TRAVERSABLE_BIKE_ROAD>Mud Dirt LargeStone</ct:TRAVERSABLE_BIKE_ROAD>
+      <ct:TOTAL_BIKES>10</ct:TOTAL_BIKES>
+      <ct:AVAILABLE_BIKES>4</ct:AVAILABLE_BIKES>
+    </ct:BIKE>
+    <ct:BIKE ID_Bike="bike3">
+      <ct:BIKE_BRAND>Cannondale</ct:BIKE_BRAND>
+      <ct:BIKE_CATEGORY>Gravel</ct:BIKE_CATEGORY>
+      <ct:BIKE_PRICE CURRENCY="EUR">38.00</ct:BIKE_PRICE>
+      <ct:HEIGHT>165-190 cm</ct:HEIGHT>
+      <ct:RIDER_LEVEL>Intermediate</ct:RIDER_LEVEL>
+      <ct:TRAVERSABLE_BIKE_ROAD>Gravel Dirt Asphalt</ct:TRAVERSABLE_BIKE_ROAD>
+      <ct:TOTAL_BIKES>12</ct:TOTAL_BIKES>
+      <ct:AVAILABLE_BIKES>6</ct:AVAILABLE_BIKES>
+    </ct:BIKE>
+    <ct:BIKE ID_Bike="bike4">
+      <ct:BIKE_BRAND>Gazelle</ct:BIKE_BRAND>
+      <ct:BIKE_CATEGORY>E-bike</ct:BIKE_CATEGORY>
+      <ct:BIKE_PRICE CURRENCY="EUR">45.00</ct:BIKE_PRICE>
+      <ct:HEIGHT>155-185 cm</ct:HEIGHT>
+      <ct:RIDER_LEVEL>Beginner</ct:RIDER_LEVEL>
+      <ct:TRAVERSABLE_BIKE_ROAD>Asphalt</ct:TRAVERSABLE_BIKE_ROAD>
+      <ct:TOTAL_BIKES>20</ct:TOTAL_BIKES>
+      <ct:AVAILABLE_BIKES>15</ct:AVAILABLE_BIKES>
+    </ct:BIKE>
+    <ct:BIKE ID_Bike="bike5">
+      <ct:BIKE_BRAND>Decathlon</ct:BIKE_BRAND>
+      <ct:BIKE_CATEGORY>City</ct:BIKE_CATEGORY>
+      <ct:BIKE_PRICE CURRENCY="EUR">20.00</ct:BIKE_PRICE>
+      <ct:HEIGHT>150-180 cm</ct:HEIGHT>
+      <ct:RIDER_LEVEL>Beginner</ct:RIDER_LEVEL>
+      <ct:TRAVERSABLE_BIKE_ROAD>Asphalt</ct:TRAVERSABLE_BIKE_ROAD>
+      <ct:TOTAL_BIKES>25</ct:TOTAL_BIKES>
+      <ct:AVAILABLE_BIKES>21</ct:AVAILABLE_BIKES>
+    </ct:BIKE>
+    <ct:BIKE ID_Bike="bike6">
+      <ct:BIKE_BRAND>Btwin</ct:BIKE_BRAND>
+      <ct:BIKE_CATEGORY>Kids</ct:BIKE_CATEGORY>
+      <ct:BIKE_PRICE CURRENCY="EUR">12.00</ct:BIKE_PRICE>
+      <ct:HEIGHT>110-140 cm</ct:HEIGHT>
+      <ct:RIDER_LEVEL>Beginner</ct:RIDER_LEVEL>
+      <ct:TRAVERSABLE_BIKE_ROAD>Asphalt Dirt</ct:TRAVERSABLE_BIKE_ROAD>
+      <ct:TOTAL_BIKES>8</ct:TOTAL_BIKES>
+      <ct:AVAILABLE_BIKES>5</ct:AVAILABLE_BIKES>
+    </ct:BIKE>
+  </ct:BIKES_Database>
+
+  <!-- =========================
+       ACTIVITIES_Database
+       ========================= -->
+  <ct:ACTIVITIES_Database>
+    <ct:ACTIVITY ID_Activity="a1" guided="fully">
+      <ct:ACTIVITY_NAME>Lyon Riverside Ride</ct:ACTIVITY_NAME>
+      <ct:ACTIVITY_TYPE>Familiale</ct:ACTIVITY_TYPE>
+      <ct:PRICE CURRENCY="EUR">29.99</ct:PRICE>
+      <ct:FREQUENCY>weekly</ct:FREQUENCY>
+      <ct:DISTANCE_KM>18</ct:DISTANCE_KM>
+      <ct:DAYS_DURATION>0</ct:DAYS_DURATION>
+      <ct:HOURS_DURATION>3</ct:HOURS_DURATION>
+      <ct:LOCATION_CITY>Lyon</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:REVIEWS_RATE_AVG>8/10</ct:REVIEWS_RATE_AVG>
+      <ct:ROAD_SURFACE>Asphalt</ct:ROAD_SURFACE>
+    </ct:ACTIVITY>
+
+    <ct:ACTIVITY ID_Activity="a2" guided="none">
+      <ct:ACTIVITY_NAME>Annecy Lakeside Loop</ct:ACTIVITY_NAME>
+      <ct:ACTIVITY_TYPE>Sportive</ct:ACTIVITY_TYPE>
+      <ct:PRICE CURRENCY="EUR">24.00</ct:PRICE>
+      <ct:FREQUENCY>none</ct:FREQUENCY>
+      <ct:DISTANCE_KM>38</ct:DISTANCE_KM>
+      <ct:DAYS_DURATION>0</ct:DAYS_DURATION>
+      <ct:HOURS_DURATION>4</ct:HOURS_DURATION>
+      <ct:LOCATION_CITY>Annecy</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:REVIEWS_RATE_AVG>9/10</ct:REVIEWS_RATE_AVG>
+      <ct:ROAD_SURFACE>Asphalt Gravel</ct:ROAD_SURFACE>
+    </ct:ACTIVITY>
+
+    <ct:ACTIVITY ID_Activity="a3" guided="partially">
+      <ct:ACTIVITY_NAME>Mont Ventoux Challenge</ct:ACTIVITY_NAME>
+      <ct:ACTIVITY_TYPE>Competitive</ct:ACTIVITY_TYPE>
+      <ct:PRICE CURRENCY="EUR">55.00</ct:PRICE>
+      <ct:FREQUENCY>monthly</ct:FREQUENCY>
+      <ct:DISTANCE_KM>50</ct:DISTANCE_KM>
+      <ct:DAYS_DURATION>1</ct:DAYS_DURATION>
+      <ct:HOURS_DURATION>6</ct:HOURS_DURATION>
+      <ct:LOCATION_CITY>Bédoin</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:REVIEWS_RATE_AVG>7/10</ct:REVIEWS_RATE_AVG>
+      <ct:ROAD_SURFACE>Asphalt</ct:ROAD_SURFACE>
+    </ct:ACTIVITY>
+
+    <ct:ACTIVITY ID_Activity="a4" guided="fully">
+      <ct:ACTIVITY_NAME>Loire Châteaux Explorer</ct:ACTIVITY_NAME>
+      <ct:ACTIVITY_TYPE>Aventure</ct:ACTIVITY_TYPE>
+      <ct:PRICE CURRENCY="EUR">49.00</ct:PRICE>
+      <ct:FREQUENCY>monthly</ct:FREQUENCY>
+      <ct:DISTANCE_KM>65</ct:DISTANCE_KM>
+      <ct:DAYS_DURATION>1</ct:DAYS_DURATION>
+      <ct:HOURS_DURATION>8</ct:HOURS_DURATION>
+      <ct:LOCATION_CITY>Blois</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:REVIEWS_RATE_AVG>8/10</ct:REVIEWS_RATE_AVG>
+      <ct:ROAD_SURFACE>Asphalt Gravel</ct:ROAD_SURFACE>
+    </ct:ACTIVITY>
+
+    <ct:ACTIVITY ID_Activity="a5" guided="none">
+      <ct:ACTIVITY_NAME>Bordeaux Vineyard Paths</ct:ACTIVITY_NAME>
+      <ct:ACTIVITY_TYPE>Familiale</ct:ACTIVITY_TYPE>
+      <ct:PRICE CURRENCY="EUR">32.00</ct:PRICE>
+      <ct:FREQUENCY>weekly</ct:FREQUENCY>
+      <ct:DISTANCE_KM>22</ct:DISTANCE_KM>
+      <ct:DAYS_DURATION>0</ct:DAYS_DURATION>
+      <ct:HOURS_DURATION>3</ct:HOURS_DURATION>
+      <ct:LOCATION_CITY>Bordeaux</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:REVIEWS_RATE_AVG>9/10</ct:REVIEWS_RATE_AVG>
+      <ct:ROAD_SURFACE>Dirt Asphalt</ct:ROAD_SURFACE>
+    </ct:ACTIVITY>
+  </ct:ACTIVITIES_Database>
+
+  <!-- =========================
+       EVENTS_Database
+       ========================= -->
+  <ct:EVENTS_Database>
+    <ct:EVENT ID_Event="e1">
+      <ct:EVENT_NAME>Lyon Bike Festival</ct:EVENT_NAME>
+      <ct:EVENT_CATEGORY>Festival</ct:EVENT_CATEGORY>
+      <ct:DATE>
+        <ct:START_DATE>2025-05-10</ct:START_DATE>
+        <ct:END_DATE>2025-05-12</ct:END_DATE>
+        <ct:FREQUENCY>annual</ct:FREQUENCY>
+      </ct:DATE>
+      <ct:LOCATION>
+        <ct:CITY>Lyon</ct:CITY>
+        <ct:COUNTRY>France</ct:COUNTRY>
+      </ct:LOCATION>
+      <ct:ORGANIZER>OnlyLyon</ct:ORGANIZER>
+      <ct:CAPACITY>5000</ct:CAPACITY>
+      <ct:TICKET_PRICE CURRENCY="EUR">15.00</ct:TICKET_PRICE>
+      <ct:RELATED_ACTIVITY_REF>a1</ct:RELATED_ACTIVITY_REF>
+    </ct:EVENT>
+
+    <ct:EVENT ID_Event="e2">
+      <ct:EVENT_NAME>Ventoux Climb Day</ct:EVENT_NAME>
+      <ct:EVENT_CATEGORY>Race</ct:EVENT_CATEGORY>
+      <ct:DATE>
+        <ct:START_DATE>2025-06-20</ct:START_DATE>
+      </ct:DATE>
+      <ct:LOCATION>
+        <ct:CITY>Bédoin</ct:CITY>
+        <ct:COUNTRY>France</ct:COUNTRY>
+      </ct:LOCATION>
+      <ct:ORGANIZER>Vaucluse Cyclisme</ct:ORGANIZER>
+      <ct:CAPACITY>800</ct:CAPACITY>
+      <ct:TICKET_PRICE CURRENCY="EUR">30.00</ct:TICKET_PRICE>
+      <ct:RELATED_ACTIVITY_REF>a3</ct:RELATED_ACTIVITY_REF>
+    </ct:EVENT>
+
+    <ct:EVENT ID_Event="e3">
+      <ct:EVENT_NAME>Loire Heritage Ride</ct:EVENT_NAME>
+      <ct:EVENT_CATEGORY>Community Ride</ct:EVENT_CATEGORY>
+      <ct:DATE>
+        <ct:START_DATE>2025-09-05</ct:START_DATE>
+      </ct:DATE>
+      <ct:LOCATION>
+        <ct:CITY>Blois</ct:CITY>
+        <ct:COUNTRY>France</ct:COUNTRY>
+      </ct:LOCATION>
+      <ct:RELATED_ACTIVITY_REF>a4</ct:RELATED_ACTIVITY_REF>
+    </ct:EVENT>
+
+    <ct:EVENT ID_Event="e4">
+      <ct:EVENT_NAME>Bordeaux Gravel Workshop</ct:EVENT_NAME>
+      <ct:EVENT_CATEGORY>Workshop</ct:EVENT_CATEGORY>
+      <ct:DATE>
+        <ct:START_DATE>2025-04-15</ct:START_DATE>
+      </ct:DATE>
+      <ct:LOCATION>
+        <ct:CITY>Bordeaux</ct:CITY>
+        <ct:COUNTRY>France</ct:COUNTRY>
+      </ct:LOCATION>
+      <ct:TICKET_PRICE CURRENCY="EUR">10.00</ct:TICKET_PRICE>
+      <ct:RELATED_ACTIVITY_REF>a5</ct:RELATED_ACTIVITY_REF>
+    </ct:EVENT>
+  </ct:EVENTS_Database>
+
+  <!-- =========================
+       CLIENTS_Database
+       ========================= -->
+  <ct:CLIENTS_Database>
+    <ct:CLIENT ID_client="c1">
+      <ct:NAME>Marie Curie</ct:NAME>
+      <ct:ADDRESS>10 Rue de la République</ct:ADDRESS>
+      <ct:POSTALCODE>69001</ct:POSTALCODE>
+      <ct:CITY>Lyon</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:BIRTHDATE>1993-04-11</ct:BIRTHDATE>
+      <ct:PHONE>+33611111111</ct:PHONE>
+      <ct:MAIL>marie@example.com</ct:MAIL>
+      <ct:CLIENT_TYPE>regular</ct:CLIENT_TYPE>
+      <ct:PREMIUM_MEMBER>true</ct:PREMIUM_MEMBER>
+    </ct:CLIENT>
+    <ct:CLIENT ID_client="c2">
+      <ct:NAME>Jean Valjean</ct:NAME>
+      <ct:ADDRESS>5 Quai Saint-Antoine</ct:ADDRESS>
+      <ct:POSTALCODE>69002</ct:POSTALCODE>
+      <ct:CITY>Lyon</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:BIRTHDATE>1988-12-24</ct:BIRTHDATE>
+      <ct:PHONE>+33622222222</ct:PHONE>
+      <ct:MAIL>jean@example.com</ct:MAIL>
+      <ct:CLIENT_TYPE>new</ct:CLIENT_TYPE>
+    </ct:CLIENT>
+    <ct:CLIENT ID_client="c3">
+      <ct:NAME>Louise Michel</ct:NAME>
+      <ct:ADDRESS>2 Rue des Capucins</ct:ADDRESS>
+      <ct:POSTALCODE>74000</ct:POSTALCODE>
+      <ct:CITY>Annecy</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:BIRTHDATE>1996-02-03</ct:BIRTHDATE>
+      <ct:PHONE>+33633333333</ct:PHONE>
+      <ct:MAIL>louise@example.com</ct:MAIL>
+      <ct:CLIENT_TYPE>regular</ct:CLIENT_TYPE>
+    </ct:CLIENT>
+    <ct:CLIENT ID_client="c4">
+      <ct:NAME>Victor Hugo</ct:NAME>
+      <ct:ADDRESS>12 Cours Pasteur</ct:ADDRESS>
+      <ct:POSTALCODE>33000</ct:POSTALCODE>
+      <ct:CITY>Bordeaux</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:BIRTHDATE>1990-06-06</ct:BIRTHDATE>
+      <ct:PHONE>+33644444444</ct:PHONE>
+      <ct:MAIL>victor@example.com</ct:MAIL>
+      <ct:CLIENT_TYPE>occasional</ct:CLIENT_TYPE>
+    </ct:CLIENT>
+    <ct:CLIENT ID_client="c5">
+      <ct:NAME>Camille Claudel</ct:NAME>
+      <ct:ADDRESS>8 Rue Nationale</ct:ADDRESS>
+      <ct:POSTALCODE>41000</ct:POSTALCODE>
+      <ct:CITY>Blois</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:BIRTHDATE>1998-09-18</ct:BIRTHDATE>
+      <ct:PHONE>+33655555555</ct:PHONE>
+      <ct:MAIL>camille@example.com</ct:MAIL>
+      <ct:CLIENT_TYPE>regular</ct:CLIENT_TYPE>
+    </ct:CLIENT>
+    <ct:CLIENT ID_client="c6">
+      <ct:NAME>Paul Cézanne</ct:NAME>
+      <ct:ADDRESS>3 Rue des Arts</ct:ADDRESS>
+      <ct:POSTALCODE>13100</ct:POSTALCODE>
+      <ct:CITY>Aix-en-Provence</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:BIRTHDATE>1992-01-20</ct:BIRTHDATE>
+      <ct:PHONE>+33666666666</ct:PHONE>
+      <ct:MAIL>paul@example.com</ct:MAIL>
+      <ct:CLIENT_TYPE>new</ct:CLIENT_TYPE>
+    </ct:CLIENT>
+    <ct:CLIENT ID_client="c7">
+      <ct:NAME>Sarah Bernhardt</ct:NAME>
+      <ct:ADDRESS>20 Avenue Foch</ct:ADDRESS>
+      <ct:POSTALCODE>69006</ct:POSTALCODE>
+      <ct:CITY>Lyon</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:BIRTHDATE>1995-05-01</ct:BIRTHDATE>
+      <ct:PHONE>+33677777777</ct:PHONE>
+      <ct:MAIL>sarah@example.com</ct:MAIL>
+      <ct:CLIENT_TYPE>regular</ct:CLIENT_TYPE>
+      <ct:PREMIUM_MEMBER>false</ct:PREMIUM_MEMBER>
+    </ct:CLIENT>
+    <ct:CLIENT ID_client="c8">
+      <ct:NAME>Émile Zola</ct:NAME>
+      <ct:ADDRESS>7 Rue Mercière</ct:ADDRESS>
+      <ct:POSTALCODE>69002</ct:POSTALCODE>
+      <ct:CITY>Lyon</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:BIRTHDATE>1987-03-07</ct:BIRTHDATE>
+      <ct:PHONE>+33688888888</ct:PHONE>
+      <ct:MAIL>emile@example.com</ct:MAIL>
+      <ct:CLIENT_TYPE>occasional</ct:CLIENT_TYPE>
+    </ct:CLIENT>
+  </ct:CLIENTS_Database>
+
+   <!-- =========================
+       BOOKINGS_Database
+       ========================= -->
+  <ct:BOOKINGS_Database>
+    <!-- Activity bookings -->
+    <ct:BOOKING ID_Booking="bk1" With_Guide="true">
+      <ct:CLIENT_REF>c1</ct:CLIENT_REF>
+      <ct:ACTIVITY_REF>a1</ct:ACTIVITY_REF>
+      <ct:LOCATION_CITY>Lyon</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:TOTAL_PRICE CURRENCY="EUR">59.98</ct:TOTAL_PRICE>
+      <ct:BOOKING_DATE>2025-05-01</ct:BOOKING_DATE>
+      <ct:START_DATE>2025-05-25</ct:START_DATE>
+      <ct:END_DATE>2025-05-25</ct:END_DATE>
+      <ct:GUIDE_REF>g1</ct:GUIDE_REF>
+      <ct:STATUS>confirmed</ct:STATUS>
+    </ct:BOOKING>
+
+    <ct:BOOKING ID_Booking="bk2" With_Guide="false">
+      <ct:CLIENT_REF>c2</ct:CLIENT_REF>
+      <ct:ACTIVITY_REF>a2</ct:ACTIVITY_REF>
+      <ct:LOCATION_CITY>Annecy</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:TOTAL_PRICE CURRENCY="EUR">24.00</ct:TOTAL_PRICE>
+      <ct:BOOKING_DATE>2025-06-01</ct:BOOKING_DATE>
+      <ct:START_DATE>2025-06-16</ct:START_DATE>
+      <ct:END_DATE>2025-06-16</ct:END_DATE>
+      <ct:STATUS>pending</ct:STATUS>
+    </ct:BOOKING>
+
+    <ct:BOOKING ID_Booking="bk3" With_Guide="true">
+      <ct:CLIENT_REF>c3</ct:CLIENT_REF>
+      <ct:ACTIVITY_REF>a3</ct:ACTIVITY_REF>
+      <ct:LOCATION_CITY>Bédoin</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:TOTAL_PRICE CURRENCY="EUR">55.00</ct:TOTAL_PRICE>
+      <ct:BOOKING_DATE>2025-06-05</ct:BOOKING_DATE>
+      <ct:START_DATE>2025-06-20</ct:START_DATE>
+      <ct:END_DATE>2025-06-20</ct:END_DATE>
+      <ct:GUIDE_REF>g2</ct:GUIDE_REF>
+      <ct:PARTICIPANTS>1</ct:PARTICIPANTS>
+      <ct:STATUS>confirmed</ct:STATUS>
+    </ct:BOOKING>
+
+    <!-- Package bookings -->
+    <ct:BOOKING ID_Booking="bk4" With_Guide="true">
+      <ct:CLIENT_REF>c4</ct:CLIENT_REF>
+      <ct:PACKAGE_REF>p1</ct:PACKAGE_REF>
+      <ct:LOCATION_CITY>Lyon</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:TOTAL_PRICE CURRENCY="EUR">298.00</ct:TOTAL_PRICE>
+      <ct:BOOKING_DATE>2025-05-10</ct:BOOKING_DATE>
+      <ct:START_DATE>2025-05-24</ct:START_DATE>
+      <ct:END_DATE>2025-05-25</ct:END_DATE>
+      <ct:GUIDE_REF>g1</ct:GUIDE_REF>
+      <ct:PARTICIPANTS>2</ct:PARTICIPANTS>
+      <ct:STATUS>confirmed</ct:STATUS>
+    </ct:BOOKING>
+
+    <ct:BOOKING ID_Booking="bk5" With_Guide="false">
+      <ct:CLIENT_REF>c5</ct:CLIENT_REF>
+      <ct:PACKAGE_REF>p2</ct:PACKAGE_REF>
+      <ct:LOCATION_CITY>Annecy</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:TOTAL_PRICE CURRENCY="EUR">199.00</ct:TOTAL_PRICE>
+      <ct:BOOKING_DATE>2025-06-05</ct:BOOKING_DATE>
+      <ct:START_DATE>2025-06-14</ct:START_DATE>
+      <ct:END_DATE>2025-06-15</ct:END_DATE>
+      <ct:STATUS>confirmed</ct:STATUS>
+    </ct:BOOKING>
+
+    <ct:BOOKING ID_Booking="bk6" With_Guide="true">
+      <ct:CLIENT_REF>c6</ct:CLIENT_REF>
+      <ct:PACKAGE_REF>p3</ct:PACKAGE_REF>
+      <ct:LOCATION_CITY>Blois</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:TOTAL_PRICE CURRENCY="EUR">698.00</ct:TOTAL_PRICE>
+      <ct:BOOKING_DATE>2025-08-25</ct:BOOKING_DATE>
+      <ct:START_DATE>2025-09-10</ct:START_DATE>
+      <ct:END_DATE>2025-09-12</ct:END_DATE>
+      <ct:GUIDE_REF>g3</ct:GUIDE_REF>
+      <ct:PARTICIPANTS>2</ct:PARTICIPANTS>
+      <ct:STATUS>pending</ct:STATUS>
+    </ct:BOOKING>
+
+    <ct:BOOKING ID_Booking="bk7" With_Guide="true">
+      <ct:CLIENT_REF>c7</ct:CLIENT_REF>
+      <ct:PACKAGE_REF>p4</ct:PACKAGE_REF>
+      <ct:LOCATION_CITY>Bédoin</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:TOTAL_PRICE CURRENCY="EUR">399.00</ct:TOTAL_PRICE>
+      <ct:BOOKING_DATE>2025-07-01</ct:BOOKING_DATE>
+      <ct:START_DATE>2025-07-19</ct:START_DATE>
+      <ct:END_DATE>2025-07-20</ct:END_DATE>
+      <ct:GUIDE_REF>g2</ct:GUIDE_REF>
+      <ct:STATUS>pending</ct:STATUS>
+    </ct:BOOKING>
+
+    <!-- More activity bookings for variety -->
+    <ct:BOOKING ID_Booking="bk8" With_Guide="false">
+      <ct:CLIENT_REF>c8</ct:CLIENT_REF>
+      <ct:ACTIVITY_REF>a1</ct:ACTIVITY_REF>
+      <ct:LOCATION_CITY>Lyon</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:TOTAL_PRICE CURRENCY="EUR">29.99</ct:TOTAL_PRICE>
+      <ct:BOOKING_DATE>2025-05-02</ct:BOOKING_DATE>
+      <ct:START_DATE>2025-05-26</ct:START_DATE>
+      <ct:END_DATE>2025-05-26</ct:END_DATE>
+      <ct:STATUS>cancelled</ct:STATUS>
+    </ct:BOOKING>
+
+    <ct:BOOKING ID_Booking="bk9" With_Guide="true">
+      <ct:CLIENT_REF>c1</ct:CLIENT_REF>
+      <ct:ACTIVITY_REF>a5</ct:ACTIVITY_REF>
+      <ct:LOCATION_CITY>Bordeaux</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:TOTAL_PRICE CURRENCY="EUR">64.00</ct:TOTAL_PRICE>
+      <ct:BOOKING_DATE>2025-04-20</ct:BOOKING_DATE>
+      <ct:START_DATE>2025-04-25</ct:START_DATE>
+      <ct:END_DATE>2025-04-25</ct:END_DATE>
+      <ct:GUIDE_REF>g4</ct:GUIDE_REF>
+      <ct:STATUS>confirmed</ct:STATUS>
+    </ct:BOOKING>
+
+    <ct:BOOKING ID_Booking="bk10" With_Guide="false">
+      <ct:CLIENT_REF>c2</ct:CLIENT_REF>
+      <ct:ACTIVITY_REF>a4</ct:ACTIVITY_REF>
+      <ct:LOCATION_CITY>Blois</ct:LOCATION_CITY>
+      <ct:LOCATION_COUNTRY>France</ct:LOCATION_COUNTRY>
+      <ct:TOTAL_PRICE CURRENCY="EUR">49.00</ct:TOTAL_PRICE>
+      <ct:BOOKING_DATE>2025-09-01</ct:BOOKING_DATE>
+      <ct:START_DATE>2025-09-05</ct:START_DATE>
+      <ct:END_DATE>2025-09-05</ct:END_DATE>
+      <ct:STATUS>pending</ct:STATUS>
+    </ct:BOOKING>
+  </ct:BOOKINGS_Database>
+
+  <!-- =========================
+       PATHS_Database
+       ========================= -->
+  <ct:PATHS_Database>
+    <ct:PATH ID_Path="path1">
+      <ct:ENVIRONMENT>City</ct:ENVIRONMENT>
+      <ct:PATH_ROAD>Asphalt</ct:PATH_ROAD>
+      <ct:DISTANCE_IN_KM>15</ct:DISTANCE_IN_KM>
+      <ct:ALTITUDEDIFFERENCE_IN_METERS>50</ct:ALTITUDEDIFFERENCE_IN_METERS>
+      <ct:ESTIMATEDTIME_IN_MINUTES>60</ct:ESTIMATEDTIME_IN_MINUTES>
+      <ct:LEVEL>Beginner</ct:LEVEL>
+    </ct:PATH>
+    <ct:PATH ID_Path="path2">
+      <ct:ENVIRONMENT>Mountain</ct:ENVIRONMENT>
+      <ct:PATH_ROAD>Mud Dirt LargeStone</ct:PATH_ROAD>
+      <ct:DISTANCE_IN_KM>30</ct:DISTANCE_IN_KM>
+      <ct:ALTITUDEDIFFERENCE_IN_METERS>900</ct:ALTITUDEDIFFERENCE_IN_METERS>
+      <ct:ESTIMATEDTIME_IN_MINUTES>240</ct:ESTIMATEDTIME_IN_MINUTES>
+      <ct:LEVEL>Expert</ct:LEVEL>
+    </ct:PATH>
+    <ct:PATH ID_Path="path3">
+      <ct:ENVIRONMENT>Littoral</ct:ENVIRONMENT>
+      <ct:PATH_ROAD>Gravel Dirt</ct:PATH_ROAD>
+      <ct:DISTANCE_IN_KM>25</ct:DISTANCE_IN_KM>
+      <ct:ALTITUDEDIFFERENCE_IN_METERS>120</ct:ALTITUDEDIFFERENCE_IN_METERS>
+      <ct:ESTIMATEDTIME_IN_MINUTES>150</ct:ESTIMATEDTIME_IN_MINUTES>
+      <ct:LEVEL>Intermediate</ct:LEVEL>
+    </ct:PATH>
+    <ct:PATH ID_Path="path4">
+      <ct:ENVIRONMENT>Countryside</ct:ENVIRONMENT>
+      <ct:PATH_ROAD>Asphalt Gravel</ct:PATH_ROAD>
+      <ct:DISTANCE_IN_KM>40</ct:DISTANCE_IN_KM>
+      <ct:ALTITUDEDIFFERENCE_IN_METERS>300</ct:ALTITUDEDIFFERENCE_IN_METERS>
+      <ct:ESTIMATEDTIME_IN_MINUTES>210</ct:ESTIMATEDTIME_IN_MINUTES>
+      <ct:LEVEL>Intermediate</ct:LEVEL>
+    </ct:PATH>
+    <ct:PATH ID_Path="path5">
+      <ct:ENVIRONMENT>City</ct:ENVIRONMENT>
+      <ct:PATH_ROAD>Asphalt</ct:PATH_ROAD>
+      <ct:DISTANCE_IN_KM>8</ct:DISTANCE_IN_KM>
+      <ct:ALTITUDEDIFFERENCE_IN_METERS>30</ct:ALTITUDEDIFFERENCE_IN_METERS>
+      <ct:ESTIMATEDTIME_IN_MINUTES>45</ct:ESTIMATEDTIME_IN_MINUTES>
+      <ct:LEVEL>Beginner</ct:LEVEL>
+    </ct:PATH>
+    <ct:PATH ID_Path="path6">
+      <ct:ENVIRONMENT>Countryside</ct:ENVIRONMENT>
+      <ct:PATH_ROAD>Dirt Gravel</ct:PATH_ROAD>
+      <ct:DISTANCE_IN_KM>55</ct:DISTANCE_IN_KM>
+      <ct:ALTITUDEDIFFERENCE_IN_METERS>450</ct:ALTITUDEDIFFERENCE_IN_METERS>
+      <ct:ESTIMATEDTIME_IN_MINUTES>300</ct:ESTIMATEDTIME_IN_MINUTES>
+      <ct:LEVEL>Expert</ct:LEVEL>
+    </ct:PATH>
+  </ct:PATHS_Database>
+
+  <!-- =========================
+       DESTINATIONS_Database
+       ========================= -->
+  <ct:DESTINATIONS_Database>
+    <ct:DESTINATION ID_Destination="d1">
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:DEPARTCITY>Lyon</ct:DEPARTCITY>
+      <ct:CITIESCROSSED>
+        <ct:CITY>Vienne</ct:CITY>
+        <ct:CITY>Tournon-sur-Rhône</ct:CITY>
+      </ct:CITIESCROSSED>
+      <ct:ARRIVALCITY>Valence</ct:ARRIVALCITY>
+    </ct:DESTINATION>
+    <ct:DESTINATION ID_Destination="d2">
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:DEPARTCITY>Annecy</ct:DEPARTCITY>
+      <ct:CITIESCROSSED>
+        <ct:CITY>Sévrier</ct:CITY>
+        <ct:CITY>Menthon-Saint-Bernard</ct:CITY>
+      </ct:CITIESCROSSED>
+      <ct:ARRIVALCITY>Talloires</ct:ARRIVALCITY>
+    </ct:DESTINATION>
+    <ct:DESTINATION ID_Destination="d3">
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:DEPARTCITY>Blois</ct:DEPARTCITY>
+      <ct:CITIESCROSSED>
+        <ct:CITY>Chaumont-sur-Loire</ct:CITY>
+        <ct:CITY>Amboise</ct:CITY>
+      </ct:CITIESCROSSED>
+      <ct:ARRIVALCITY>Tours</ct:ARRIVALCITY>
+    </ct:DESTINATION>
+    <ct:DESTINATION ID_Destination="d4">
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:DEPARTCITY>Bordeaux</ct:DEPARTCITY>
+      <ct:CITIESCROSSED>
+        <ct:CITY>Pessac</ct:CITY>
+        <ct:CITY>Martillac</ct:CITY>
+      </ct:CITIESCROSSED>
+      <ct:ARRIVALCITY>Saint-Médard-d'Eyrans</ct:ARRIVALCITY>
+    </ct:DESTINATION>
+    <ct:DESTINATION ID_Destination="d5">
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:DEPARTCITY>Bédoin</ct:DEPARTCITY>
+      <ct:CITIESCROSSED>
+        <ct:CITY>Flassan</ct:CITY>
+        <ct:CITY>Sault</ct:CITY>
+      </ct:CITIESCROSSED>
+      <ct:ARRIVALCITY>Malaucène</ct:ARRIVALCITY>
+    </ct:DESTINATION>
+  </ct:DESTINATIONS_Database>
+
+  <!-- =========================
+       TOURPACKAGES_Database
+       ========================= -->
+  <ct:TOURPACKAGES_Database>
+    <ct:TOURPACKAGE ID_TourPackage="p1">
+      <ct:PACKAGE_NAME>Family Lyon Weekend</ct:PACKAGE_NAME>
+      <ct:DIFFICULTY>easy</ct:DIFFICULTY>
+      <ct:DESCRIPTION>
+        <ct:SHORT_DESCRIPTION>Fun city tour along Rhône &amp; Saône.</ct:SHORT_DESCRIPTION>
+        <ct:ACTIVITY>Lyon Riverside Ride</ct:ACTIVITY>
+        <ct:ENVIRONMENT>City</ct:ENVIRONMENT>
+        <ct:FOOD_INFO>breakfast only</ct:FOOD_INFO>
+      </ct:DESCRIPTION>
+      <ct:DATE>
+        <ct:START_DATE_HOUR>2025-05-24</ct:START_DATE_HOUR>
+        <ct:DURATION>02-06</ct:DURATION>
+      </ct:DATE>
+      <ct:GROUP_SIZE>8</ct:GROUP_SIZE>
+      <ct:EQUIPMENT>
+        <ct:REQUIREDBIKETYPE>City or E-bike</ct:REQUIREDBIKETYPE>
+        <ct:CANRENTBIKE>true</ct:CANRENTBIKE>
+      </ct:EQUIPMENT>
+      <ct:PACKAGE_PRICE CURRENCY="EUR">149.00</ct:PACKAGE_PRICE>
+    </ct:TOURPACKAGE>
+
+    <ct:TOURPACKAGE ID_TourPackage="p2">
+      <ct:PACKAGE_NAME>Annecy Lake Discovery</ct:PACKAGE_NAME>
+      <ct:DIFFICULTY>moderate</ct:DIFFICULTY>
+      <ct:DESCRIPTION>
+        <ct:SHORT_DESCRIPTION>Panoramic lakeside loop with villages.</ct:SHORT_DESCRIPTION>
+        <ct:ENVIRONMENT>Littoral</ct:ENVIRONMENT>
+        <ct:FOOD_INFO>self catering</ct:FOOD_INFO>
+      </ct:DESCRIPTION>
+      <ct:DATE>
+        <ct:START_DATE_HOUR>2025-06-14</ct:START_DATE_HOUR>
+        <ct:END_DATE>2025-06-15</ct:END_DATE>
+        <ct:DURATION>01-08</ct:DURATION>
+      </ct:DATE>
+      <ct:GROUP_SIZE>10</ct:GROUP_SIZE>
+      <ct:EQUIPMENT>
+        <ct:REQUIREDBIKETYPE>Gravel or Road</ct:REQUIREDBIKETYPE>
+        <ct:CANRENTBIKE>true</ct:CANRENTBIKE>
+      </ct:EQUIPMENT>
+      <ct:PACKAGE_PRICE CURRENCY="EUR">199.00</ct:PACKAGE_PRICE>
+    </ct:TOURPACKAGE>
+
+    <ct:TOURPACKAGE ID_TourPackage="p3">
+      <ct:PACKAGE_NAME>Loire Castles Adventure</ct:PACKAGE_NAME>
+      <ct:DIFFICULTY>moderate</ct:DIFFICULTY>
+      <ct:DESCRIPTION>
+        <ct:SHORT_DESCRIPTION>Castles, gardens, and riverside cycling.</ct:SHORT_DESCRIPTION>
+        <ct:ACTIVITY>Loire Châteaux Explorer</ct:ACTIVITY>
+        <ct:ENVIRONMENT>Countryside</ct:ENVIRONMENT>
+        <ct:ACCOMMODATION>
+          <ct:NAME>Hotel de la Loire</ct:NAME>
+          <ct:ADDRESS>3 Rue Royale, Blois</ct:ADDRESS>
+          <ct:RATING>4</ct:RATING>
+        </ct:ACCOMMODATION>
+      </ct:DESCRIPTION>
+      <ct:DATE>
+        <ct:START_DATE_HOUR>2025-09-10</ct:START_DATE_HOUR>
+        <ct:DURATION>03-00</ct:DURATION>
+      </ct:DATE>
+      <ct:GROUP_SIZE>12</ct:GROUP_SIZE>
+      <ct:EQUIPMENT>
+        <ct:CANRENTBIKE>true</ct:CANRENTBIKE>
+      </ct:EQUIPMENT>
+      <ct:PACKAGE_PRICE CURRENCY="EUR">349.00</ct:PACKAGE_PRICE>
+    </ct:TOURPACKAGE>
+
+    <ct:TOURPACKAGE ID_TourPackage="p4">
+      <ct:PACKAGE_NAME>Ventoux Summit Weekend</ct:PACKAGE_NAME>
+      <ct:DIFFICULTY>difficult</ct:DIFFICULTY>
+      <ct:DESCRIPTION>
+        <ct:SHORT_DESCRIPTION>Big climb with support car.</ct:SHORT_DESCRIPTION>
+        <ct:ENVIRONMENT>Mountain</ct:ENVIRONMENT>
+        <ct:FOOD_INFO>all meal available</ct:FOOD_INFO>
+      </ct:DESCRIPTION>
+      <ct:DATE>
+        <ct:START_DATE_HOUR>2025-07-19</ct:START_DATE_HOUR>
+        <ct:END_DATE>2025-07-20</ct:END_DATE>
+        <ct:DURATION>01-10</ct:DURATION>
+      </ct:DATE>
+      <ct:GROUP_SIZE>6</ct:GROUP_SIZE>
+      <ct:EQUIPMENT>
+        <ct:REQUIREDBIKETYPE>Road</ct:REQUIREDBIKETYPE>
+        <ct:CANRENTBIKE>false</ct:CANRENTBIKE>
+      </ct:EQUIPMENT>
+      <ct:PACKAGE_PRICE CURRENCY="EUR">399.00</ct:PACKAGE_PRICE>
+    </ct:TOURPACKAGE>
+  </ct:TOURPACKAGES_Database>
+  
+  
+   <!-- =========================
+       GUIDES_Database
+       ========================= -->
+  <ct:GUIDES_Database>
+    <ct:GUIDE ID_Guide="g1">
+      <ct:NAME>Alain Dupont</ct:NAME>
+      <ct:CITY>Lyon</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:PHONE>+33699999991</ct:PHONE>
+      <ct:MAIL>alain.dupont@example.com</ct:MAIL>
+    </ct:GUIDE>
+    <ct:GUIDE ID_Guide="g2">
+      <ct:NAME>Claire Martin</ct:NAME>
+      <ct:CITY>Annecy</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:PHONE>+33699999992</ct:PHONE>
+      <ct:MAIL>claire.martin@example.com</ct:MAIL>
+    </ct:GUIDE>
+    <ct:GUIDE ID_Guide="g3">
+      <ct:NAME>Louis Bernard</ct:NAME>
+      <ct:CITY>Blois</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:PHONE>+33699999993</ct:PHONE>
+      <ct:MAIL>louis.bernard@example.com</ct:MAIL>
+    </ct:GUIDE>
+    <ct:GUIDE ID_Guide="g4">
+      <ct:NAME>Anaïs Leroy</ct:NAME>
+      <ct:CITY>Bordeaux</ct:CITY>
+      <ct:COUNTRY>France</ct:COUNTRY>
+      <ct:PHONE>+33699999994</ct:PHONE>
+      <ct:MAIL>anais.leroy@example.com</ct:MAIL>
+    </ct:GUIDE>
+  </ct:GUIDES_Database>
+
+</ct:cyclingtours>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TourPackages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="tourPackages.xsd">
+
+  <TourPackage>
+    <package_id>P001</package_id>
+    <package_name>Alps Adventure</package_name>
+    <difficulty>moderate</difficulty>
+    <date>
+      <start_date_hour>2025-07-15</start_date_hour>
+      <end_date></end_date>
+      <duration>01-05</duration>
+    </date>
+    <group_size>12</group_size>
+    <equipment>
+      <requiredBikeType>Mountain Bike</requiredBikeType>
+      <canRentBike>yes</canRentBike>
+    </equipment>
+    <package_price>
+      <amount>250</amount>
+      <currency>EUR</currency>
+    </package_price>
+  </TourPackage>
+
+  <TourPackage>
+    <package_id>P002</package_id>
+    <package_name>Coastal Family Ride</package_name>
+    <difficulty>easy</difficulty>
+    <date>
+      <start_date_hour>2025-08-03</start_date_hour>
+      <end_date>2025-08-04</end_date>
+      <duration>01-03</duration>
+    </date>
+    <group_size>20</group_size>
+    <equipment>
+      <canRentBike>no</canRentBike>
+    </equipment>
+    <package_price>
+      <amount>180</amount>
+      <currency>EUR</currency>
+    </package_price>
+  </TourPackage>
+
+</TourPackages>
