@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <!-- Root element: list of tour packages -->
+  <xs:element name="TourPackages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TourPackage" type="TourPackageType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- One tour package -->
+  <xs:complexType name="TourPackageType">
+    <xs:sequence>
+      <!-- package_id must be unique, required -->
+      <xs:element name="package_id" type="xs:ID"/>
+      <!-- package_name is required -->
+      <xs:element name="package_name" type="xs:string"/>
+
+      <!-- difficulty (beginner, easy, moderate, difficult, expert) -->
+      <xs:element name="difficulty" type="DifficultyType"/>
+
+      <!-- description (optional) -->
+      <xs:element name="description" type="DescriptionType" minOccurs="0"/>
+
+      <!-- date of the tour -->
+      <xs:element name="date" type="DateBlockType"/>
+
+      <!-- group size (integer >= 0) -->
+      <xs:element name="group_size">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <!-- equipment block -->
+      <xs:element name="equipment" type="EquipmentType"/>
+
+      <!-- package price -->
+      <xs:element name="package_price" type="PriceType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- difficulty options -->
+  <xs:simpleType name="DifficultyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="beginner"/>
+      <xs:enumeration value="easy"/>
+      <xs:enumeration value="moderate"/>
+      <xs:enumeration value="difficult"/>
+      <xs:enumeration value="expert"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- description part -->
+  <xs:complexType name="DescriptionType">
+    <xs:sequence>
+      <!-- short text about the package -->
+      <xs:element name="short_description" type="xs:string" minOccurs="0"/>
+
+      <!-- activity and environment (text) -->
+      <xs:element name="activity" type="xs:string" minOccurs="0"/>
+      <xs:element name="environment" type="xs:string" minOccurs="0"/>
+
+      <!-- link to external Activity and Cycling Path by ID (optional) -->
+      <xs:element name="activityRef" type="xs:IDREF" minOccurs="0"/>
+      <xs:element name="pathRef"     type="xs:IDREF" minOccurs="0"/>
+
+      <!-- accommodation is optional -->
+      <xs:element name="accommodation" type="AccommodationType" minOccurs="0"/>
+
+      <!-- food info is optional and can repeat -->
+      <xs:element name="food_info" type="FoodOptionType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- accommodation block -->
+  <xs:complexType name="AccommodationType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="address" type="xs:string"/>
+      <!-- rating stars (* to *****) -->
+      <xs:element name="rating" type="StarRatingType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- stars -->
+  <xs:simpleType name="StarRatingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="*"/>
+      <xs:enumeration value="**"/>
+      <xs:enumeration value="***"/>
+      <xs:enumeration value="****"/>
+      <xs:enumeration value="*****"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- food options -->
+  <xs:simpleType name="FoodOptionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="breakfast only"/>
+      <xs:enumeration value="all meal available"/>
+      <xs:enumeration value="self catering"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- date block -->
+  <xs:complexType name="DateBlockType">
+    <xs:sequence>
+      <!-- start_date_hour is required (YYYY-MM-DD) -->
+      <xs:element name="start_date_hour" type="xs:date"/>
+      <!-- end_date is optional, can be date or empty -->
+      <xs:element name="end_date" minOccurs="0">
+        <xs:simpleType>
+          <xs:union memberTypes="xs:date EmptyString"/>
+        </xs:simpleType>
+      </xs:element>
+      <!-- duration required in DD-HH format -->
+      <xs:element name="duration" type="DurationDDHH"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- allow empty string -->
+  <xs:simpleType name="EmptyString">
+    <xs:restriction base="xs:string">
+      <xs:length value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- duration pattern -->
+  <xs:simpleType name="DurationDDHH">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{2}-[0-9]{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- equipment block -->
+  <xs:complexType name="EquipmentType">
+    <xs:sequence>
+      <!-- requiredBikeType is optional -->
+      <xs:element name="requiredBikeType" type="xs:string" minOccurs="0"/>
+      <!-- canRentBike yes/no is required -->
+      <xs:element name="canRentBike" type="YesNoType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- yes/no choice -->
+  <xs:simpleType name="YesNoType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="yes"/>
+      <xs:enumeration value="no"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- price block -->
+  <xs:complexType name="PriceType">
+    <xs:sequence>
+      <!-- amount must be integer and >= 0 (base package only) -->
+      <xs:element name="amount">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <!-- currency fixed EUR -->
+      <xs:element name="currency" type="xs:string" fixed="EUR"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
